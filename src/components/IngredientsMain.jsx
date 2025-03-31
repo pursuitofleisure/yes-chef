@@ -1,17 +1,20 @@
 import React from 'react';
+import IngredientsList from './IngredientsList';
+import Recipe from './Recipe';
 
-function IngredientsForm() {
+function IngredientsMain() {
   const [ingredients, setIngredients] = React.useState([]);
-
-  const ingredientsListItems = ingredients.map((ingredient) => {
-    return <li>{ingredient}</li>;
-  });
+  const [isRecipeShown, setIsRecipeShown] = React.useState(false);
 
   function addIngredient(formData) {
     const newIngredient = formData.get('ingredient');
     setIngredients((prevIngredients) => {
       return [...prevIngredients, newIngredient];
     });
+  }
+
+  function toggleRecipeShown() {
+    setIsRecipeShown((prevShown) => !prevShown);
   }
 
   return (
@@ -37,24 +40,14 @@ function IngredientsForm() {
       </form>
 
       {ingredients.length > 0 && (
-        <section aria-labelledby="ingredients-header">
-          <h2 id="ingredients-header">Ingredients on hand:</h2>
-          <ul className="ingredients-list" aria-live="polite">
-            {ingredientsListItems}
-          </ul>
-          {ingredients.length >= 4 && (
-            <div className="recipe-results">
-              <div>
-                <h3>Ready for a recipe?</h3>
-                <p>Generate a recipe from your list of ingredients.</p>
-              </div>
-              <button>Get a recipe</button>
-            </div>
-          )}
-        </section>
+        <IngredientsList
+          ingredients={ingredients}
+          toggleRecipeShown={toggleRecipeShown}
+        />
       )}
+      {isRecipeShown && <Recipe />}
     </main>
   );
 }
 
-export default IngredientsForm;
+export default IngredientsMain;

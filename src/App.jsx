@@ -1,5 +1,5 @@
 import Header from './components/Header';
-import IngredientsForm from './components/IngredientsForm';
+import IngredientsMain from './components/IngredientsMain';
 
 import './App.css';
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <Header />
       <main>
-        <IngredientsForm />
+        <IngredientsMain />
       </main>
     </>
   );
