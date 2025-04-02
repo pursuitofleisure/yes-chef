@@ -1,10 +1,16 @@
 import React from 'react';
 import IngredientsList from './IngredientsList';
 import Recipe from './Recipe';
+import { getRecipeFromMistral } from '../ai';
 
 function IngredientsMain() {
-  const [ingredients, setIngredients] = React.useState([]);
-  const [isRecipeShown, setIsRecipeShown] = React.useState(false);
+  const [ingredients, setIngredients] = React.useState([
+    'butter',
+    'oil',
+    'eggs',
+    'flour',
+  ]);
+  const [recipe, setRecipe] = React.useState('');
 
   function addIngredient(formData) {
     const newIngredient = formData.get('ingredient');
@@ -13,8 +19,9 @@ function IngredientsMain() {
     });
   }
 
-  function toggleRecipeShown() {
-    setIsRecipeShown((prevShown) => !prevShown);
+  async function getRecipe() {
+    const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    setRecipe(recipeMarkdown);
   }
 
   return (
@@ -40,12 +47,9 @@ function IngredientsMain() {
       </form>
 
       {ingredients.length > 0 && (
-        <IngredientsList
-          ingredients={ingredients}
-          toggleRecipeShown={toggleRecipeShown}
-        />
+        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
-      {isRecipeShown && <Recipe />}
+      {recipe !== '' && <Recipe recipe={recipe} />}
     </main>
   );
 }

@@ -8,7 +8,7 @@ function Header() {
         alt="Chef Claude logo"
         className="main-header__logo"
       />
-      <h1 className="main-header__h1">Chef Claude</h1>
+      <h1 className="main-header__h1">Yes, Chef</h1>
     </header>
   );
 }

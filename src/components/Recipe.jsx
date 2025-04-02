@@ -1,5 +1,5 @@
-function Recipe() {
-  return <p>This is the recipe</p>;
+function Recipe({ recipe }) {
+  return <div>{recipe}</div>;
 }
 
 export default Recipe;
