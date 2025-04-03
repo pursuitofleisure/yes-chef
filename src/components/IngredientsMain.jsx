@@ -4,14 +4,18 @@ import Recipe from './Recipe';
 import { getRecipeFromMistral } from '../ai';
 
 function IngredientsMain() {
+  /* TODO: remove hard-coded ingredients when done testing */
   const [ingredients, setIngredients] = React.useState([
     'butter',
     'oil',
     'eggs',
     'flour',
   ]);
+
+  /* Set state for recipe API return */
   const [recipe, setRecipe] = React.useState('');
 
+  /* Add user ingrededients to state */
   function addIngredient(formData) {
     const newIngredient = formData.get('ingredient');
     setIngredients((prevIngredients) => {
@@ -19,6 +23,7 @@ function IngredientsMain() {
     });
   }
 
+  /* Get recipe API results */
   async function getRecipe() {
     const recipeMarkdown = await getRecipeFromMistral(ingredients);
     setRecipe(recipeMarkdown);
