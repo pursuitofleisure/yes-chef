@@ -1,6 +1,7 @@
 import React from 'react';
 import IngredientsList from './IngredientsList';
 import Recipe from './Recipe';
+import Loading from './Loading';
 import { getRecipeFromMistral } from '../ai';
 
 function IngredientsMain() {
@@ -11,6 +12,9 @@ function IngredientsMain() {
     'eggs',
     'flour',
   ]);
+
+  /* Set state for loading */
+  const [isLoading, setIsLoading] = React.useState(false);
 
   /* Set state for recipe API return */
   const [recipe, setRecipe] = React.useState('');
@@ -25,7 +29,9 @@ function IngredientsMain() {
 
   /* Get recipe API results */
   async function getRecipe() {
+    setIsLoading(true);
     const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    setIsLoading(false);
     setRecipe(recipeMarkdown);
   }
 
@@ -54,6 +60,7 @@ function IngredientsMain() {
       {ingredients.length > 0 && (
         <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
+      {isLoading && <Loading />}
       {recipe !== '' && <Recipe recipe={recipe} />}
     </main>
   );
