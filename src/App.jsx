@@ -7,9 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <main>
-        <IngredientsMain />
-      </main>
+      <IngredientsMain />
     </>
   );
 }
