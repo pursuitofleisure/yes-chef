@@ -37,13 +37,21 @@ function IngredientsMain() {
 
   return (
     <main>
+      <div className="description">
+        <p>
+          <span>✨</span> Add 4 or more ingredients to generate a recipe{' '}
+          <span>✨</span>
+        </p>
+      </div>
       <form
         action={addIngredient}
         name="Add-Ingredients"
         id="form-add-ingredients"
       >
         <div className="form-label-input">
-          <label htmlFor="ingredient">Add Ingredient</label>
+          <label htmlFor="ingredient" className="form-label">
+            Ingredient
+          </label>
           <input
             type="text"
             name="ingredient"
@@ -52,13 +60,21 @@ function IngredientsMain() {
             className="form-input"
           />
         </div>
-        <button type="submit" className="form-submit">
+        <button
+          type="submit"
+          className="form-submit"
+          disabled={isLoading ? true : false}
+        >
           Add Ingredient
         </button>
       </form>
 
       {ingredients.length > 0 && (
-        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
+        <IngredientsList
+          ingredients={ingredients}
+          getRecipe={getRecipe}
+          isLoading={isLoading}
+        />
       )}
       {isLoading && <Loading />}
       {recipe !== '' && <Recipe recipe={recipe} />}
