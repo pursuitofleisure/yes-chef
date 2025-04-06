@@ -161,6 +161,10 @@ main {
     background-color: var(--color-brand-primary-darker);
     color: #fff;
   }
+  &:disabled {
+    background-color: var(--color-brand-primary);
+    color: #fff;
+  }
 }
 
 .recipe-cta {
@@ -186,6 +190,10 @@ main {
     }
     &:active {
       background-color: var(--color-brand-secondary-darker);
+      color: #fff;
+    }
+    &:disabled {
+      background-color: var(--color-brand-secondary);
       color: #fff;
     }
   }
