@@ -56,7 +56,7 @@ function IngredientsMain() {
             type="text"
             name="ingredient"
             id="ingredient"
-            placeholder="e.g. oregano"
+            placeholder="e.g. flour"
             className="form-input"
           />
         </div>

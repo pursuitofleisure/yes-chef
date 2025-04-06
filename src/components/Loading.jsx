@@ -1,6 +1,6 @@
 function Loading() {
   return (
-    <div class="loading-spinner">
+    <div className="loading-spinner">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
         <path
           className="fa-secondary"
