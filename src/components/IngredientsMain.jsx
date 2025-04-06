@@ -62,7 +62,7 @@ function IngredientsMain() {
         </div>
         <button
           type="submit"
-          className="form-submit"
+          className="btn form-submit"
           disabled={isLoading ? true : false}
         >
           Add Ingredient

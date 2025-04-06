@@ -15,7 +15,11 @@ function IngredientsList({ ingredients, getRecipe, isLoading }) {
             <h3>Ready for a recipe?</h3>
             <p>Generate a recipe from your list of ingredients.</p>
           </div>
-          <button onClick={getRecipe} disabled={isLoading ? true : false}>
+          <button
+            className="btn"
+            onClick={getRecipe}
+            disabled={isLoading ? true : false}
+          >
             Get a Recipe
           </button>
         </div>
