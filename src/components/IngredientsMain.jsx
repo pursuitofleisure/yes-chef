@@ -5,13 +5,7 @@ import Loading from './Loading';
 import { getRecipeFromChefClaude } from '../ai';
 
 function IngredientsMain() {
-  /* TODO: remove hard-coded ingredients when done testing */
-  const [ingredients, setIngredients] = React.useState([
-    'butter',
-    'oil',
-    'eggs',
-    'flour',
-  ]);
+  const [ingredients, setIngredients] = React.useState([]);
 
   /* Set state for loading */
   const [isLoading, setIsLoading] = React.useState(false);
