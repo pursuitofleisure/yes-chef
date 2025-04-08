@@ -2,7 +2,7 @@ import React from 'react';
 import IngredientsList from './IngredientsList';
 import Recipe from './Recipe';
 import Loading from './Loading';
-import { getRecipeFromMistral } from '../ai';
+import { getRecipeFromChefClaude } from '../ai';
 
 function IngredientsMain() {
   /* TODO: remove hard-coded ingredients when done testing */
@@ -30,7 +30,7 @@ function IngredientsMain() {
   /* Get recipe API results */
   async function getRecipe() {
     setIsLoading(true);
-    const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
     setIsLoading(false);
     setRecipe(recipeMarkdown);
   }
