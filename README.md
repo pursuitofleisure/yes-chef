@@ -15,4 +15,4 @@ This application takes a list of ingredients manually added by the user and allo
 
 ## Notes
 
-Running this as is on a server will result in exposing the API key even if the key is stored in a hidden environment variable. A backend or serverless function needs to be created to obscure the key.
+Running this as-is on a server will result in exposing the API key even if the key is stored in a hidden environment variable. A backend or serverless function needs to be created to obscure the key.
