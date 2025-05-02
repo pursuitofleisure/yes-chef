@@ -21,6 +21,14 @@ function IngredientsMain() {
     });
   }
 
+  /* Add smooth scroll */
+  const recipeCta = React.useRef(null);
+  React.useEffect(() => {
+    if (recipe !== '' && recipeCta.current !== null) {
+      recipeCta.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [recipe]);
+
   /* Get recipe API results */
   async function getRecipe() {
     setIsLoading(true);
@@ -65,6 +73,7 @@ function IngredientsMain() {
 
       {ingredients.length > 0 && (
         <IngredientsList
+          ref={recipeCta}
           ingredients={ingredients}
           getRecipe={getRecipe}
           isLoading={isLoading}

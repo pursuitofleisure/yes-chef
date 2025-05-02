@@ -1,4 +1,4 @@
-function IngredientsList({ ingredients, getRecipe, isLoading }) {
+function IngredientsList({ ingredients, getRecipe, isLoading, ref }) {
   const ingredientsListItems = ingredients.map((ingredient) => {
     return <li key={ingredient}>{ingredient}</li>;
   });
@@ -10,7 +10,7 @@ function IngredientsList({ ingredients, getRecipe, isLoading }) {
         {ingredientsListItems}
       </ul>
       {ingredients.length >= 4 && (
-        <div className="recipe-cta">
+        <div ref={ref} className="recipe-cta">
           <div>
             <h3>Ready for a recipe?</h3>
             <p>Generate a recipe from your list of ingredients.</p>
